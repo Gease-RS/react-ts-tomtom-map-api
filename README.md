@@ -19,4 +19,3 @@ $ npx create-react-app tomtom-map-api --template=typescript
 ```bash
 $ npm i @tomtom-international/web-sdk-maps
 ```
-
