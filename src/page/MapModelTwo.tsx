@@ -21,7 +21,7 @@ const RouterMapTwo: React.FC = () => {
   };
 
   const drawRoute = (geoJson: any, map: tt.Map) => {
-    if(map.getLayer("route")) {
+    if (map.getLayer("route")) {
       map.removeLayer("route");
       map.removeSource("route");
     }
@@ -33,22 +33,22 @@ const RouterMapTwo: React.FC = () => {
         data: geoJson,
       },
       paint: {
-        "line-color": 'red',
+        "line-color": "red",
         "line-width": 6,
-      }
-    })
-  }
-  
+      },
+    });
+  };
+
   const addDeliveryMarker = (lngLat: tt.LngLat, map: tt.Map) => {
     const element = document.createElement("div");
     element.className = "marker-delivery";
     new tt.Marker({
       element: element,
     })
-    .setLngLat(lngLat)
-    .addTo(map);
+      .setLngLat(lngLat)
+      .addTo(map);
   };
-  
+
   useEffect(() => {
     const origin = new tt.LngLat(longitude, latitude);
 
@@ -116,34 +116,24 @@ const RouterMapTwo: React.FC = () => {
             resolve(sortedLocations);
           });
       });
-    }
+    };
 
     const recalculateRoute = async () => {
       sortDestinations(destinations).then((sorted: any) => {
-        sorted.unshift(origin)
+        sorted.unshift(origin);
 
-        ttapi.services.calculateRoute({
-          key: `${process.env.REACT_APP_API_TOMTOM}`,
-          locations: sorted,
-        })
-        .then((routeData) => {
-          const geoJson = routeData.toGeoJson();
-          console.log(geoJson, "geoJson");
-          drawRoute(geoJson, map);
-        })
-
-        /*ttapi.services
+        ttapi.services
           .calculateRoute({
             key: `${process.env.REACT_APP_API_TOMTOM}`,
             locations: sorted,
           })
           .then((routeData) => {
-            const geoJson = routeData.toGeoJson()
+            const geoJson = routeData.toGeoJson();
+            console.log(geoJson, "geoJson");
             drawRoute(geoJson, map);
-          });*/
-      })
-      
-    }
+          });
+      });
+    };
 
     map.on("click", (e) => {
       destinations.push(e.lngLat);
@@ -182,4 +172,4 @@ const RouterMapTwo: React.FC = () => {
   );
 };
 
-export default RouterMapTwo
+export default RouterMapTwo;
