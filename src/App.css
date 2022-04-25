@@ -2,8 +2,10 @@ body {
   display: flex;
   justify-content: center;
 }
+
+
 .app {
-  height: 800px;
+  height: 500px;
   width: 100vh;
 }
 
@@ -13,11 +15,20 @@ body {
 }
 
 .marker {
-  background-image: url( './assets/img/marker.png' );
+  background-image: url( 'https://images.pexels.com/photos/7823/selfie.jpg?auto=compress&cs=tinysrgb&h=750&w=1260' );
   background-size: cover;
-  width: 22px;
-  height: 22px;
-  background-color: yellow;
-  border-radius: 11px;
-  border: solid 3px darkslategray;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: solid 3px orange;
+}
+
+.search-bar {
+  margin-top: 20px;
+}
+
+.marker-delivery {
+  background-color: red;
+  width: 30px;
+  height: 30px;
 }
