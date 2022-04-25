@@ -26,3 +26,8 @@ $ npm i @tomtom-international/web-sdk-services
 ```
 $ npm i react-toastify
 ```
+
+6. Instale react-router-dom
+```
+$ npm i react-router-dom
+```
